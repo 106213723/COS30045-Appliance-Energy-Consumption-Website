@@ -4,135 +4,279 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Appliance Energy Consumption</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <a href="index.html" class="logo" aria-label="Appliance Energy Consumption home">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="container navbar">
+            <a href="index.html" class="brand" aria-label="Appliance Energy Consumption home">
                 <img src="assets/img/PowerIcon.png" alt="Power logo">
+                <span class="brand-name">Appliance Energy</span>
             </a>
-            <ul class="nav-links">
-                <li><a class="active" href="index.html">Home</a></li>
-                <li><a href="televisions.html">Televisions</a></li>
-                <li><a href="about.html">About Us</a></li>
-            </ul>
-        </nav>
+
+            <nav id="primary-nav" aria-label="Primary">
+                <ul class="nav-links">
+                    <li><a class="active" href="index.html">Home</a></li>
+                    <li><a href="televisions.html">Televisions</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </nav>
+
+            <button class="nav-toggle" id="nav-toggle" type="button"
+                    aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 7h16M4 12h16M4 17h16"></path>
+                </svg>
+            </button>
+        </div>
     </header>
 
-    <main>
+    <main id="main">
+        <!-- Hero -->
         <section class="hero">
-            <h1>Appliance Energy Consumption</h1>
-            <p>
-                Explore how household appliances consume electricity and learn
-                more about energy use in the Australian market.
-            </p>
-        </section>
-
-        <section class="intro">
-            <h2>Understanding Energy Consumption</h2>
-            <p>
-                Household appliances contribute significantly to residential
-                electricity consumption. Understanding how much energy appliances
-                use can help Australian households make more informed purchasing
-                and energy-saving decisions.
-            </p>
-            <p>
-                Appliances are rated for the power they draw, measured in watts.
-                The energy an appliance actually uses depends on that rating and
-                on how long the appliance runs, which is why two similar products
-                can have very different running costs.
-            </p>
-        </section>
-
-        <section class="cards">
-            <article class="card">
-                <h3>Power rating</h3>
-                <p>
-                    The watts an appliance draws while it is operating. A higher
-                    rating means more energy is used for the same running time.
-                </p>
-            </article>
-            <article class="card">
-                <h3>Usage time</h3>
-                <p>
-                    Hours of use per day. A low-powered appliance left running all
-                    day can still use more energy than a high-powered one used briefly.
-                </p>
-            </article>
-            <article class="card">
-                <h3>Electricity price</h3>
-                <p>
-                    Retail tariffs are usually quoted in cents per kilowatt hour,
-                    and they vary between states and retailers.
-                </p>
-            </article>
-        </section>
-
-        <section class="faq">
-            <h2>Frequently Asked Questions</h2>
-
-            <div class="faq-item">
-                <button class="faq-question" type="button" aria-expanded="false">
-                    What is appliance energy consumption?
-                </button>
-                <div class="faq-answer">
-                    <p>
-                        Appliance energy consumption refers to the amount of
-                        electrical energy used by an appliance during operation.
-                        It is normally measured in kilowatt hours (kWh).
+            <div class="container grid items-center">
+                <div class="span-8 hero__copy">
+                    <h1 class="display">Understand what drives household energy consumption.</h1>
+                    <p class="body-main lead">
+                        Explore the relationship between appliance size, display technology
+                        and daily usage to uncover what really shapes domestic energy demand
+                        in the Australian market.
                     </p>
+                    <div class="btn-row">
+                        <a class="btn btn--primary" href="televisions.html">Explore television data</a>
+                        <a class="btn btn--secondary" href="about.html">Learn about the project</a>
+                    </div>
+                </div>
+                <div class="span-4 hero__motif" aria-hidden="true">
+                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M100 0L125.438 74.5621L200 100L125.438 125.438L100 200L74.5621 125.438L0 100L74.5621 74.5621L100 0Z"></path>
+                    </svg>
                 </div>
             </div>
+        </section>
 
-            <div class="faq-item">
-                <button class="faq-question" type="button" aria-expanded="false">
-                    Why does energy efficiency matter?
-                </button>
-                <div class="faq-answer">
-                    <p>
-                        Energy-efficient appliances can reduce electricity use and
-                        potentially lower household energy costs over the life of
-                        the product.
+        <!-- Why it matters -->
+        <section class="section">
+            <div class="container grid items-center">
+                <div class="span-7 stack-md">
+                    <h2 class="headline-section">Why appliance energy consumption matters</h2>
+                    <p class="body-main">
+                        As households adopt larger screens and more sophisticated appliances,
+                        the hidden energy cost becomes harder to see. It is not only about
+                        switching devices off &mdash; it is about the efficiency built into the
+                        technology we bring into our homes in the first place.
+                    </p>
+                    <p class="body-main">
+                        This project looks at how measurable attributes, such as the screen
+                        size of a television, relate to annual energy draw and long-term
+                        running costs.
                     </p>
                 </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" type="button" aria-expanded="false">
-                    Do larger televisions use more electricity?
-                </button>
-                <div class="faq-answer">
-                    <p>
-                        Television energy consumption can be influenced by factors
-                        including screen size, display technology, brightness
-                        settings and usage time.
-                    </p>
+                <div class="span-5">
+                    <div class="stat-card">
+                        <span class="stat-card__figure">40%</span>
+                        <span class="headline-chart">Household energy</span>
+                        <p class="annotation">
+                            Indicative share of a residential electricity bill attributed to
+                            major domestic appliances. Placeholder figure for this exercise.
+                        </p>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="faq-item">
-                <button class="faq-question" type="button" aria-expanded="false">
-                    How is energy use converted into a cost?
-                </button>
-                <div class="faq-answer">
-                    <p>
-                        Energy use in kilowatt hours is multiplied by the
-                        electricity price. You can try this on the
-                        <a href="televisions.html">Televisions</a> page using the
-                        energy calculator.
+        <!-- Energy calculator -->
+        <section class="band">
+            <div class="container grid">
+                <div class="span-5 stack-md">
+                    <h2 class="headline-section">Energy cost calculator</h2>
+                    <p class="body-main">
+                        Estimate what an appliance costs to run. Choose a television model or
+                        enter your own power rating, then set your daily usage and electricity
+                        price. Everything is calculated in your browser.
                     </p>
+                </div>
+
+                <div class="span-7">
+                    <div class="calc-panel">
+                        <form class="calc-form" id="calc-form" novalidate>
+                            <div class="calc-fields">
+                                <div class="field field--wide">
+                                    <label for="model">Appliance model</label>
+                                    <select id="model" name="model">
+                                        <option value="80">32&quot; LED television (80 W)</option>
+                                        <option value="120" selected>50&quot; LED television (120 W)</option>
+                                        <option value="160">65&quot; LED television (160 W)</option>
+                                        <option value="210">65&quot; OLED television (210 W)</option>
+                                        <option value="custom">Custom power rating</option>
+                                    </select>
+                                </div>
+
+                                <div class="field">
+                                    <label for="power">Power (watts)</label>
+                                    <input type="number" id="power" name="power" min="1" max="10000"
+                                           step="1" value="120" inputmode="decimal">
+                                    <p class="field-error" id="power-error"></p>
+                                </div>
+
+                                <div class="field">
+                                    <label for="hours">Hours used per day</label>
+                                    <input type="number" id="hours" name="hours" min="0" max="24"
+                                           step="0.5" value="5" inputmode="decimal">
+                                    <p class="field-error" id="hours-error"></p>
+                                </div>
+
+                                <div class="field field--wide">
+                                    <label for="price">Electricity price (cents per kWh)</label>
+                                    <input type="number" id="price" name="price" min="0" max="200"
+                                           step="0.1" value="30" inputmode="decimal">
+                                    <p class="field-error" id="price-error"></p>
+                                </div>
+                            </div>
+
+                            <div class="calc-actions">
+                                <button type="submit" class="btn btn--primary">Calculate</button>
+                                <button type="button" class="btn btn--secondary" id="calc-reset">Reset</button>
+                            </div>
+                        </form>
+
+                        <div class="results" id="results" aria-live="polite">
+                            <div id="results-message"></div>
+
+                            <div class="results__grid" id="results-energy">
+                                <div>
+                                    <span class="result__label">Daily consumption</span>
+                                    <span class="result__value" id="res-daily-kwh">&mdash;</span>
+                                </div>
+                                <div>
+                                    <span class="result__label">Monthly consumption</span>
+                                    <span class="result__value" id="res-monthly-kwh">&mdash;</span>
+                                </div>
+                                <div>
+                                    <span class="result__label">Yearly consumption</span>
+                                    <span class="result__value" id="res-yearly-kwh">&mdash;</span>
+                                </div>
+                                <div>
+                                    <span class="result__label">Daily cost</span>
+                                    <span class="result__value" id="res-daily-cost">&mdash;</span>
+                                </div>
+                                <div>
+                                    <span class="result__label">Monthly cost</span>
+                                    <span class="result__value" id="res-monthly-cost">&mdash;</span>
+                                </div>
+                                <div>
+                                    <span class="result__label">Yearly cost</span>
+                                    <span class="result__value result__value--accent" id="res-yearly-cost">&mdash;</span>
+                                </div>
+                            </div>
+
+                            <p class="results__note">
+                                Monthly figures assume 30 days and yearly figures assume 365 days.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="section">
+            <div class="container">
+                <h2 class="headline-section text-center mb-md">
+                    Frequently asked questions
+                </h2>
+
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" aria-expanded="false">
+                            <span>What is appliance energy consumption?</span>
+                            <svg class="icon faq-chevron" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 9l6 6 6-6"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p class="body-main">
+                                Appliance energy consumption is the amount of electrical energy a
+                                household device uses over a period of time. It is normally measured
+                                in kilowatt hours (kWh) and is a primary factor in a residential
+                                electricity bill.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" aria-expanded="false">
+                            <span>Why does television size matter?</span>
+                            <svg class="icon faq-chevron" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 9l6 6 6-6"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p class="body-main">
+                                The area of a screen is related to how much light it has to produce.
+                                Larger screens generally need more power to illuminate, which tends to
+                                raise energy consumption even when the panel technology is efficient.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" aria-expanded="false">
+                            <span>Why does energy efficiency matter?</span>
+                            <svg class="icon faq-chevron" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 9l6 6 6-6"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p class="body-main">
+                                An efficient appliance uses less electricity to do the same job, which
+                                can reduce running costs over the life of the product and lower the
+                                energy a household draws overall.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" aria-expanded="false">
+                            <span>How is energy use converted into a cost?</span>
+                            <svg class="icon faq-chevron" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 9l6 6 6-6"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p class="body-main">
+                                Energy use in kilowatt hours is multiplied by the electricity price.
+                                The calculator above divides the price in cents by 100 to work in
+                                dollars, then multiplies by the kilowatt hours used.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; <span id="year"></span> Your Name</p>
-        <p>
-            Generative AI tools were used to assist with code structure,
-            syntax and debugging.
-        </p>
+    <footer class="site-footer">
+        <div class="container">
+            <div>
+                <div class="site-footer__brand">Appliance Energy</div>
+                <p>
+                    &copy; <span id="year"></span> Your Name. Created for COS30045 Data
+                    Visualisation. Generative AI tools were used to assist with code
+                    structure, syntax and debugging.
+                </p>
+            </div>
+            <nav class="footer-links" aria-label="Footer">
+                <a class="active" href="index.html">Home</a>
+                <a href="televisions.html">Televisions</a>
+                <a href="about.html">About Us</a>
+            </nav>
+        </div>
     </footer>
 
     <script src="assets/js/script.js"></script>
