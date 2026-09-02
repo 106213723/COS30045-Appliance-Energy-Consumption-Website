@@ -1,0 +1,360 @@
+/* ============================================================
+   Appliance Energy Consumption - shared stylesheet
+   Colours are based on the green of the supplied power logo.
+   ============================================================ */
+
+/* ---------- Reset and base ---------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f7f6;
+    color: #222;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1, h2, h3 {
+    line-height: 1.25;
+}
+
+a {
+    color: #1f8049;
+}
+
+/* ---------- Navigation ---------- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 8%;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo img {
+    width: 45px;
+    display: block;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #333;
+    text-decoration: none;
+    padding: 8px 4px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s, border-color 0.3s;
+}
+
+/* Hover effect */
+.nav-links a:hover {
+    color: #29a35a;
+    border-bottom-color: #a8ddbf;
+}
+
+/* Current page indicator */
+.nav-links a.active {
+    color: #29a35a;
+    border-bottom-color: #29a35a;
+}
+
+/* ---------- Layout ---------- */
+main {
+    width: 85%;
+    max-width: 1100px;
+    margin: 40px auto;
+    flex: 1;
+}
+
+section + section {
+    margin-top: 50px;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+    background-color: #ffffff;
+    border-left: 5px solid #29a35a;
+    padding: 30px;
+}
+
+.hero h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #14532d;
+}
+
+.hero p {
+    max-width: 640px;
+    color: #444;
+}
+
+/* ---------- Content sections ---------- */
+.intro h2,
+.faq h2,
+.calculator h2 {
+    font-size: 24px;
+    margin-bottom: 14px;
+    color: #14532d;
+}
+
+.intro p + p {
+    margin-top: 12px;
+}
+
+/* ---------- Info cards ---------- */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    flex: 1 1 260px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-top: 3px solid #29a35a;
+    padding: 20px;
+}
+
+.card h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #14532d;
+}
+
+/* ---------- FAQ accordion ---------- */
+.faq-item {
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    background-color: #ffffff;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    background-color: #ffffff;
+    text-align: left;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: inherit;
+    color: #222;
+}
+
+.faq-question:hover {
+    background-color: #f0f5f2;
+}
+
+.faq-question::after {
+    content: "+";
+    float: right;
+    color: #29a35a;
+    font-weight: bold;
+}
+
+.faq-question.open::after {
+    content: "\2013"; /* en dash */
+}
+
+/* Answers are hidden by default; JavaScript adds .show */
+.faq-answer {
+    display: none;
+    padding: 16px;
+    border-top: 1px solid #ddd;
+}
+
+.faq-answer.show {
+    display: block;
+}
+
+/* ---------- Energy calculator ---------- */
+.calculator-intro {
+    max-width: 640px;
+    margin-bottom: 20px;
+}
+
+.calc-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 24px;
+}
+
+.field {
+    flex: 1 1 220px;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.field input,
+.field select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #ffffff;
+    font-size: 15px;
+    font-family: inherit;
+    color: #222;
+}
+
+.field input:focus,
+.field select:focus {
+    outline: 2px solid #29a35a;
+    outline-offset: 1px;
+}
+
+.field input.invalid {
+    border-color: #c0392b;
+    background-color: #fdf3f2;
+}
+
+.field-error {
+    min-height: 18px;
+    margin-top: 4px;
+    font-size: 13px;
+    color: #c0392b;
+}
+
+.calc-buttons {
+    flex: 1 1 100%;
+    display: flex;
+    gap: 12px;
+}
+
+.btn {
+    padding: 11px 26px;
+    border: 1px solid #29a35a;
+    background-color: #29a35a;
+    color: #ffffff;
+    font-size: 15px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #1f8049;
+    border-color: #1f8049;
+}
+
+.btn-secondary {
+    background-color: #ffffff;
+    color: #1f8049;
+}
+
+.btn-secondary:hover {
+    background-color: #f0f5f2;
+    color: #1f8049;
+}
+
+/* ---------- Results panel ---------- */
+.results {
+    margin-top: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-left: 5px solid #29a35a;
+    padding: 24px;
+}
+
+.results h3 {
+    font-size: 18px;
+    margin-bottom: 14px;
+    color: #14532d;
+}
+
+.results-placeholder {
+    color: #666;
+}
+
+.results.error {
+    border-left-color: #c0392b;
+}
+
+.results-message {
+    color: #c0392b;
+}
+
+.result-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.result-item {
+    flex: 1 1 180px;
+    background-color: #f5f7f6;
+    border: 1px solid #e2e6e4;
+    padding: 14px;
+}
+
+.result-label {
+    display: block;
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 4px;
+}
+
+.result-value {
+    display: block;
+    font-size: 22px;
+    font-weight: bold;
+    color: #14532d;
+}
+
+.results-note {
+    margin-top: 14px;
+    font-size: 13px;
+    color: #666;
+}
+
+/* ---------- Footer ---------- */
+footer {
+    margin-top: 60px;
+    padding: 25px;
+    text-align: center;
+    background-color: #222;
+    color: #ffffff;
+}
+
+footer p + p {
+    margin-top: 6px;
+    font-size: 13px;
+    color: #c9d1cd;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 700px) {
+    .navbar {
+        padding: 12px 5%;
+    }
+
+    .nav-links {
+        gap: 16px;
+    }
+
+    main {
+        width: 90%;
+    }
+
+    .hero h1 {
+        font-size: 26px;
+    }
+}
