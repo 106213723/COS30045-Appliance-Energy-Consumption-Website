@@ -1,16 +1,16 @@
 # Appliance Energy Consumption Website
 
-A small three-page website built for COS30045 Data Visualisation, Exercise 0.2.
+A three-page website built for COS30045 Data Visualisation, Exercise 0.2.
 It is written with plain HTML, one external CSS file and one external JavaScript
-file — no frameworks or libraries.
+file — no frameworks, no libraries and no build step.
 
 ## Pages
 
 | Page | File | Contents |
 | --- | --- | --- |
-| Home | `index.html` | Introduction, three concept cards, FAQ accordion |
-| Televisions | `televisions.html` | Television energy notes and the energy calculator |
-| About Us | `about.html` | Project background |
+| Home | `index.html` | Editorial hero, context section, energy calculator, FAQ accordion |
+| Televisions | `televisions.html` | Data story in three chapters with chart placeholders ready for D3 |
+| About Us | `about.html` | Project background, methodology and data transparency notes |
 
 ## Technologies Used
 
@@ -25,9 +25,31 @@ file — no frameworks or libraries.
 - Navigation hover effect (`.nav-links a:hover`)
 - Active page indicator (`.nav-links a.active`)
 - FAQ accordion, hidden by default with `display: none` and revealed by
-  JavaScript adding a `.show` class
+  JavaScript adding a `.show` class, with a chevron that rotates on open
 - Footer on every page with the current year inserted by JavaScript
-- Appliance energy calculator with input validation and a dynamic results panel
+- Appliance energy calculator with input validation and a live results panel
+- Collapsible navigation menu on narrow screens
+
+## Design System
+
+The visual design follows an editorial, scientific-journal aesthetic: sharp
+0px corners, no drop shadows, 1px tonal outlines, generous whitespace and a
+strict 12-column grid. The tokens live as CSS custom properties at the top of
+`assets/css/style.css`, so the whole site can be re-themed from one place.
+
+| Token | Value | Used for |
+| --- | --- | --- |
+| `--surface` | `#f7f9f8` | Page canvas |
+| `--surface-card` | `#ffffff` | Cards and story chapters |
+| `--primary` | `#167a45` | Buttons, active nav, accents |
+| `--primary-dark` | `#005f32` | Brand wordmark, hover on primary |
+| `--energy-green` | `#2fae66` | Data highlights |
+| `--outline-variant` | `#dde4e0` | Hairline borders and grid lines |
+
+Type pairs **Hanken Grotesk** (headlines, tight letter-spacing) with
+**Source Sans 3** (body and data). Both are loaded from Google Fonts with a
+system fallback stack, so the site still reads correctly offline. Icons are
+inline SVG rather than an icon font, which keeps the pages self-contained.
 
 ## Project Structure
 
@@ -55,11 +77,16 @@ errors on pages that do not use a given feature.
 **Footer year** — `document.getElementById("year")` finds the `<span>` in the
 footer and `new Date().getFullYear()` writes the current year into it.
 
+**Navigation menu** — below 900px the menu button toggles an `.open` class on
+the navigation list, and updates `aria-expanded` so the button's state is
+announced correctly.
+
 **FAQ accordion** — `document.querySelectorAll(".faq-question")` collects every
 question button. `forEach` loops over them and `addEventListener("click", ...)`
 waits for a click. `nextElementSibling` gets the answer sitting directly below
 the button, and `classList.toggle("show")` adds or removes the class that
-switches the answer between `display: none` and `display: block`.
+switches the answer between `display: none` and `display: block`. The same
+toggle puts `.open` on the button, which rotates the chevron in CSS.
 
 **Energy calculator** — the form inputs are read from the DOM, validated by the
 `readNumber` function, and used in these calculations:
@@ -71,11 +98,12 @@ yearly kWh  = daily kWh × 365
 cost        = kWh × (cents per kWh ÷ 100)
 ```
 
-The results panel is rewritten each time `calculate()` runs, so results are
-replaced rather than duplicated. Invalid or empty inputs are highlighted and an
-explanatory message is shown near the field and in the results panel. The
-calculator also runs once on page load using the default values, so it displays
-a correct result immediately after a refresh.
+Six result tiles are updated in place with `textContent`, so results are
+replaced rather than duplicated. When a value is invalid the field is
+highlighted, a message appears beneath it, a warning banner is created with
+`document.createElement` above the results, and the stale figures are dimmed.
+The calculator also runs once on page load using the default values, so it
+displays a correct result immediately after a refresh.
 
 ## Running the Site
 
@@ -87,27 +115,34 @@ build step or server-side code is required.
 *(Replace the text below with your own account of what you actually did — the
 unit expects a personal reflection, and this section is marked.)*
 
-**Tool used.** I used Claude (and/or ChatGPT) while building this site.
+**Tool used.** I used Claude (and/or ChatGPT) while building this site, and
+Google Stitch to generate the visual design direction.
 
-**What I used it for.** I used it to help plan the folder structure, to check
-CSS syntax for the flexbox navigation bar, and to work through the logic of the
-energy calculator, particularly the conversion from watts to kilowatt hours.
+**What I used it for.** I used it to help plan the folder structure, to work
+through the logic of the energy calculator (particularly the conversion from
+watts to kilowatt hours), and to translate a generated design mockup into
+hand-written CSS.
 
-**What I changed after generation.** I rewrote the page content so it relates to
-Australian household appliance energy use, chose the green colour scheme to
-match the supplied power logo, and adjusted the calculator so it validates each
-input separately and shows the error message beside the relevant field rather
-than in a browser alert. I also added the reset button and the appliance model
-dropdown, which were not in the original suggestion.
+**What I changed after generation.** The design mockups were produced with
+Tailwind loaded from a CDN and Material Symbols as an icon font. Because the
+exercise requires all styling to live in one external stylesheet with no
+libraries, I rebuilt the design as plain CSS: the mockup's design tokens became
+CSS custom properties, the utility classes became named component classes, and
+the icon font was replaced with inline SVG so the pages have no icon
+dependency. I also rewrote the placeholder copy, which made claims about data
+sources and independence that would not have been true of a student project.
 
 **What I learned.** I now understand how `addEventListener` connects a user
 action to a JavaScript function, and how `classList.toggle` lets CSS control
-what is visible while JavaScript only manages state. Writing the accordion
-made the separation between structure (HTML), presentation (CSS) and behaviour
-(JavaScript) much clearer to me.
+what is visible while JavaScript only manages state. Rebuilding the mockup by
+hand also taught me how CSS grid placement works — I hit a bug where
+`grid-column: span 8` combined with a separate `grid-column-start` collapsed a
+block to one column, because the shorthand had already set the end line to
+`auto`.
 
-**Limitations.** Generated code still had to be read, tested and corrected. Some
-suggestions were more complicated than the exercise required, so I simplified
-them to code I can explain. I also had to check the generated CSS actually
-produced the hover and active states the brief asks for, since those are two
-separate requirements that are easy to confuse.
+**Limitations.** Generated code still had to be read, tested and corrected. The
+mockups assumed a framework the exercise does not allow, so they were a
+starting point for the design rather than code I could use directly. Some
+generated copy sounded authoritative but was not factually supportable, which
+was a useful reminder to check claims rather than assume the output is
+accurate.
