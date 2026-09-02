@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Televisions | Appliance Energy Consumption</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo" aria-label="Appliance Energy Consumption home">
+                <img src="assets/img/PowerIcon.png" alt="Power logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a class="active" href="televisions.html">Televisions</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Televisions</h1>
+            <p>
+                Explore television energy consumption and the factors that may
+                influence electricity usage.
+            </p>
+        </section>
+
+        <section class="intro">
+            <h2>Television Energy Use</h2>
+            <p>
+                Television energy consumption can vary depending on screen size,
+                display technology, brightness and usage time. Standby power also
+                contributes to total consumption, although modern televisions draw
+                far less in standby than older models.
+            </p>
+            <p>
+                Future data visualisations will be displayed on this page.
+            </p>
+        </section>
+
+        <section class="calculator">
+            <h2>Appliance Energy Calculator</h2>
+            <p class="calculator-intro">
+                Choose a television model or enter your own power rating, then
+                estimate how much energy it uses and what that energy costs.
+            </p>
+
+            <form class="calc-form" id="calc-form" novalidate>
+                <div class="field">
+                    <label for="model">Television model</label>
+                    <select id="model" name="model">
+                        <option value="80">32" LED (80 W)</option>
+                        <option value="120" selected>50" LED (120 W)</option>
+                        <option value="160">65" LED (160 W)</option>
+                        <option value="210">65" OLED (210 W)</option>
+                        <option value="custom">Custom power rating</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="power">Power usage (watts)</label>
+                    <input type="number" id="power" name="power" min="1" max="10000"
+                           step="1" value="120">
+                    <p class="field-error" id="power-error"></p>
+                </div>
+
+                <div class="field">
+                    <label for="hours">Average hours of use per day</label>
+                    <input type="number" id="hours" name="hours" min="0" max="24"
+                           step="0.5" value="5">
+                    <p class="field-error" id="hours-error"></p>
+                </div>
+
+                <div class="field">
+                    <label for="price">Electricity price (cents per kWh)</label>
+                    <input type="number" id="price" name="price" min="0" max="200"
+                           step="0.1" value="30">
+                    <p class="field-error" id="price-error"></p>
+                </div>
+
+                <div class="calc-buttons">
+                    <button type="submit" class="btn">Calculate</button>
+                    <button type="button" class="btn btn-secondary" id="calc-reset">Reset</button>
+                </div>
+            </form>
+
+            <div class="results" id="results" aria-live="polite">
+                <p class="results-placeholder">
+                    Enter your details above and select Calculate to see estimated
+                    energy use and cost.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Your Name</p>
+        <p>
+            Generative AI tools were used to assist with code structure,
+            syntax and debugging.
+        </p>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
