@@ -90,100 +90,6 @@
             </div>
         </section>
 
-        <!-- Energy calculator -->
-        <section class="band">
-            <div class="container grid">
-                <div class="span-5 stack-md">
-                    <h2 class="headline-section">Energy cost calculator</h2>
-                    <p class="body-main">
-                        Estimate what an appliance costs to run. Choose a television model or
-                        enter your own power rating, then set your daily usage and electricity
-                        price. Everything is calculated in your browser.
-                    </p>
-                </div>
-
-                <div class="span-7">
-                    <div class="calc-panel">
-                        <form class="calc-form" id="calc-form" novalidate>
-                            <div class="calc-fields">
-                                <div class="field field--wide">
-                                    <label for="model">Appliance model</label>
-                                    <select id="model" name="model">
-                                        <option value="80">32&quot; LED television (80 W)</option>
-                                        <option value="120" selected>50&quot; LED television (120 W)</option>
-                                        <option value="160">65&quot; LED television (160 W)</option>
-                                        <option value="210">65&quot; OLED television (210 W)</option>
-                                        <option value="custom">Custom power rating</option>
-                                    </select>
-                                </div>
-
-                                <div class="field">
-                                    <label for="power">Power (watts)</label>
-                                    <input type="number" id="power" name="power" min="1" max="10000"
-                                           step="1" value="120" inputmode="decimal">
-                                    <p class="field-error" id="power-error"></p>
-                                </div>
-
-                                <div class="field">
-                                    <label for="hours">Hours used per day</label>
-                                    <input type="number" id="hours" name="hours" min="0" max="24"
-                                           step="0.5" value="5" inputmode="decimal">
-                                    <p class="field-error" id="hours-error"></p>
-                                </div>
-
-                                <div class="field field--wide">
-                                    <label for="price">Electricity price (cents per kWh)</label>
-                                    <input type="number" id="price" name="price" min="0" max="200"
-                                           step="0.1" value="30" inputmode="decimal">
-                                    <p class="field-error" id="price-error"></p>
-                                </div>
-                            </div>
-
-                            <div class="calc-actions">
-                                <button type="submit" class="btn btn--primary">Calculate</button>
-                                <button type="button" class="btn btn--secondary" id="calc-reset">Reset</button>
-                            </div>
-                        </form>
-
-                        <div class="results" id="results" aria-live="polite">
-                            <div id="results-message"></div>
-
-                            <div class="results__grid" id="results-energy">
-                                <div>
-                                    <span class="result__label">Daily consumption</span>
-                                    <span class="result__value" id="res-daily-kwh">&mdash;</span>
-                                </div>
-                                <div>
-                                    <span class="result__label">Monthly consumption</span>
-                                    <span class="result__value" id="res-monthly-kwh">&mdash;</span>
-                                </div>
-                                <div>
-                                    <span class="result__label">Yearly consumption</span>
-                                    <span class="result__value" id="res-yearly-kwh">&mdash;</span>
-                                </div>
-                                <div>
-                                    <span class="result__label">Daily cost</span>
-                                    <span class="result__value" id="res-daily-cost">&mdash;</span>
-                                </div>
-                                <div>
-                                    <span class="result__label">Monthly cost</span>
-                                    <span class="result__value" id="res-monthly-cost">&mdash;</span>
-                                </div>
-                                <div>
-                                    <span class="result__label">Yearly cost</span>
-                                    <span class="result__value result__value--accent" id="res-yearly-cost">&mdash;</span>
-                                </div>
-                            </div>
-
-                            <p class="results__note">
-                                Monthly figures assume 30 days and yearly figures assume 365 days.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- FAQ -->
         <section class="section">
             <div class="container">
@@ -250,9 +156,9 @@
                         </button>
                         <div class="faq-answer">
                             <p class="body-main">
-                                Energy use in kilowatt hours is multiplied by the electricity price.
-                                The calculator above divides the price in cents by 100 to work in
-                                dollars, then multiplies by the kilowatt hours used.
+                                Energy use in kilowatt hours is multiplied by the electricity
+                                price. Retail tariffs are usually quoted in cents per kilowatt
+                                hour, so the price is divided by 100 to work in dollars.
                             </p>
                         </div>
                     </div>

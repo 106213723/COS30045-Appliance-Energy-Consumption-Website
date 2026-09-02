@@ -8,7 +8,7 @@ file — no frameworks, no libraries and no build step.
 
 | Page | File | Contents |
 | --- | --- | --- |
-| Home | `index.html` | Editorial hero, context section, energy calculator, FAQ accordion |
+| Home | `index.html` | Editorial hero, context section, FAQ accordion |
 | Televisions | `televisions.html` | Data story in three chapters with chart placeholders ready for D3 |
 | About Us | `about.html` | Project background, methodology and data transparency notes |
 
@@ -27,7 +27,6 @@ file — no frameworks, no libraries and no build step.
 - FAQ accordion, hidden by default with `display: none` and revealed by
   JavaScript adding a `.show` class, with a chevron that rotates on open
 - Footer on every page with the current year inserted by JavaScript
-- Appliance energy calculator with input validation and a live results panel
 - Collapsible navigation menu on narrow screens
 
 ## Design System
@@ -88,23 +87,6 @@ the button, and `classList.toggle("show")` adds or removes the class that
 switches the answer between `display: none` and `display: block`. The same
 toggle puts `.open` on the button, which rotates the chevron in CSS.
 
-**Energy calculator** — the form inputs are read from the DOM, validated by the
-`readNumber` function, and used in these calculations:
-
-```
-daily kWh   = (watts × hours per day) ÷ 1000
-monthly kWh = daily kWh × 30
-yearly kWh  = daily kWh × 365
-cost        = kWh × (cents per kWh ÷ 100)
-```
-
-Six result tiles are updated in place with `textContent`, so results are
-replaced rather than duplicated. When a value is invalid the field is
-highlighted, a message appears beneath it, a warning banner is created with
-`document.createElement` above the results, and the stale figures are dimmed.
-The calculator also runs once on page load using the default values, so it
-displays a correct result immediately after a refresh.
-
 ## Running the Site
 
 Open `index.html` in a browser, or use the VS Code Live Server extension. No
@@ -118,10 +100,9 @@ unit expects a personal reflection, and this section is marked.)*
 **Tool used.** I used Claude (and/or ChatGPT) while building this site, and
 Google Stitch to generate the visual design direction.
 
-**What I used it for.** I used it to help plan the folder structure, to work
-through the logic of the energy calculator (particularly the conversion from
-watts to kilowatt hours), and to translate a generated design mockup into
-hand-written CSS.
+**What I used it for.** I used it to help plan the folder structure, to
+understand how CSS grid placement and custom properties work, and to translate
+a generated design mockup into hand-written CSS.
 
 **What I changed after generation.** The design mockups were produced with
 Tailwind loaded from a CDN and Material Symbols as an icon font. Because the

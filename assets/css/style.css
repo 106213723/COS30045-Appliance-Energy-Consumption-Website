@@ -544,141 +544,6 @@ main {
 .stack-md > * + * {
     margin-top: var(--gutter);
 }
-
-/* ------------------------------------------------------------
-   10. Full-width band (calculator)
-   ------------------------------------------------------------ */
-.band {
-    background-color: var(--surface-card);
-    border-top: 1px solid var(--outline-variant);
-    border-bottom: 1px solid var(--outline-variant);
-    padding: var(--section-gap) 0;
-}
-
-/* ------------------------------------------------------------
-   11. Calculator form
-   ------------------------------------------------------------ */
-.calc-panel {
-    background-color: var(--surface-card);
-    border: 1px solid var(--outline-variant);
-    padding: var(--stack-gap);
-}
-
-.calc-fields {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--gutter);
-}
-
-.field--wide {
-    grid-column: 1 / -1;
-}
-
-.field label {
-    display: block;
-    font-size: 14px;
-    line-height: 1.4;
-    color: var(--on-surface);
-    margin-bottom: 6px;
-}
-
-.field input,
-.field select {
-    width: 100%;
-    height: 48px;
-    padding: 0 12px;
-    border: 1px solid var(--outline-variant);
-    border-radius: 0;
-    background-color: var(--surface-card);
-    color: var(--on-surface);
-    font-family: var(--font-body);
-    font-size: 18px;
-    transition: border-color var(--transition);
-}
-
-.field input:focus,
-.field select:focus {
-    border-color: var(--primary);
-    outline-offset: 0;
-}
-
-.field input.invalid {
-    border-color: var(--error);
-    background-color: var(--error-container);
-}
-
-.field-error {
-    min-height: 20px;
-    margin-top: 4px;
-    font-size: 14px;
-    line-height: 1.4;
-    color: var(--error);
-}
-
-.calc-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-top: var(--gutter);
-}
-
-/* Results */
-.results {
-    margin-top: var(--stack-gap);
-    padding-top: var(--stack-gap);
-    border-top: 1px solid var(--outline-variant);
-}
-
-.results__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--gutter);
-    text-align: center;
-}
-
-.results__grid.is-stale {
-    opacity: 0.35;
-}
-
-.result__label {
-    display: block;
-    font-size: 14px;
-    line-height: 1.4;
-    color: var(--on-surface-variant);
-    margin-bottom: 4px;
-}
-
-.result__value {
-    display: block;
-    font-family: var(--font-display);
-    font-size: 24px;
-    font-weight: 500;
-    line-height: 1.3;
-    color: var(--on-surface);
-    font-variant-numeric: tabular-nums;
-}
-
-.result__value--accent {
-    color: var(--primary);
-    font-weight: 700;
-}
-
-.results__message {
-    margin-bottom: var(--gutter);
-    padding: 12px 16px;
-    background-color: var(--error-container);
-    border-left: 4px solid var(--error);
-    color: var(--error);
-    font-size: 16px;
-}
-
-.results__note {
-    margin-top: var(--gutter);
-    font-size: 14px;
-    line-height: 1.4;
-    color: var(--outline);
-}
-
 /* ------------------------------------------------------------
    12. FAQ accordion
    Minimal: hairline rules, a 1px chevron that rotates on open.
@@ -1062,9 +927,7 @@ main {
         border-bottom-color: var(--primary);
     }
 
-    .data-grid,
-    .calc-fields,
-    .results__grid {
+    .data-grid {
         grid-template-columns: 1fr;
     }
 
@@ -1086,8 +949,7 @@ main {
 }
 
 @media (min-width: 600px) and (max-width: 899px) {
-    .data-grid,
-    .results__grid {
+    .data-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
