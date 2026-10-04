@@ -75,12 +75,10 @@ from Google Fonts with fallbacks in case they don't load.
 
 ## Generative AI Reflection
 
-**TODO: rewrite this in your own words before submitting.**
-
 **Tools.** I used Claude and Google Stitch.
 
 **What I used it for.** Stitch to come up with the visual design, and Claude to
-help with the CSS and to explain things I didn't understand.
+help with the CSS and to explain things I didn't understand. I also asked Claude to handle pushing to the git to save time. 
 
 **What I changed.** The design Stitch gave me used Tailwind from a CDN and an
 icon font from Google. The exercise says all the styling has to be in an
