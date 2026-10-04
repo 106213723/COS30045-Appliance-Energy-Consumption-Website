@@ -1,129 +1,105 @@
 # Appliance Energy Consumption Website
 
-A three-page website built for COS30045 Data Visualisation, Exercise 0.2.
-It is written with plain HTML, one external CSS file and one external JavaScript
-file — no frameworks, no libraries and no build step.
+My website for COS30045 Exercise 0.2. It's three pages about how much
+electricity household appliances use, built with HTML, CSS and JavaScript.
+No frameworks or libraries.
 
 ## Pages
 
-| Page | File | Contents |
-| --- | --- | --- |
-| Home | `index.html` | Editorial hero, context section, FAQ accordion |
-| Televisions | `televisions.html` | Data story in three chapters with chart placeholders ready for D3 |
-| About Us | `about.html` | Project background, methodology and data transparency notes |
+- `index.html` - Home. Intro section and a FAQ accordion.
+- `televisions.html` - Televisions. Set up as a data story with placeholders
+  where the charts will go later.
+- `about.html` - About Us. Info about the project and the data.
 
-## Technologies Used
+## How to run it
 
-- HTML5 for page structure
-- CSS3 for all presentation (external stylesheet only, no inline styles)
-- Vanilla JavaScript for interactivity (no external libraries)
+Open `index.html` in a browser. That's it, there's nothing to install.
+I used the Live Server extension in VS Code while working on it.
 
-## Features
-
-- Multi-page navigation shown on all three pages
-- Power logo in the top-left corner that links back to Home
-- Navigation hover effect (`.nav-links a:hover`)
-- Active page indicator (`.nav-links a.active`)
-- FAQ accordion, hidden by default with `display: none` and revealed by
-  JavaScript adding a `.show` class, with a chevron that rotates on open
-- Footer on every page with the current year inserted by JavaScript
-- Collapsible navigation menu on narrow screens
-
-## Design System
-
-The visual design follows an editorial, scientific-journal aesthetic: sharp
-0px corners, no drop shadows, 1px tonal outlines, generous whitespace and a
-strict 12-column grid. The tokens live as CSS custom properties at the top of
-`assets/css/style.css`, so the whole site can be re-themed from one place.
-
-| Token | Value | Used for |
-| --- | --- | --- |
-| `--surface` | `#f7f9f8` | Page canvas |
-| `--surface-card` | `#ffffff` | Cards and story chapters |
-| `--primary` | `#167a45` | Buttons, active nav, accents |
-| `--primary-dark` | `#005f32` | Brand wordmark, hover on primary |
-| `--energy-green` | `#2fae66` | Data highlights |
-| `--outline-variant` | `#dde4e0` | Hairline borders and grid lines |
-
-Type pairs **Hanken Grotesk** (headlines, tight letter-spacing) with
-**Source Sans 3** (body and data). Both are loaded from Google Fonts with a
-system fallback stack, so the site still reads correctly offline. Icons are
-inline SVG rather than an icon font, which keeps the pages self-contained.
-
-## Project Structure
+## Folder structure
 
 ```
-appliance-energy/
-├── index.html
-├── televisions.html
-├── about.html
-├── README.md
-└── assets/
-    ├── css/
-    │   └── style.css
-    ├── js/
-    │   └── script.js
-    └── img/
-        └── PowerIcon.png
+index.html
+televisions.html
+about.html
+README.md
+assets/
+    css/style.css
+    js/script.js
+    img/PowerIcon.png
 ```
 
-## How the JavaScript Works
+All the CSS is in one file and all the JavaScript is in one file. Both are
+linked from every page so the styling stays the same across the site.
 
-`assets/js/script.js` is loaded by all three pages. Each feature first checks
-that the elements it needs are present, so the same file can be shared without
-errors on pages that do not use a given feature.
+## What it does
 
-**Footer year** — `document.getElementById("year")` finds the `<span>` in the
-footer and `new Date().getFullYear()` writes the current year into it.
+- Nav bar on all three pages with the power logo top left
+- Logo takes you back to Home
+- Links change colour when you hover over them
+- The page you're on is underlined in the nav
+- FAQ answers are hidden until you click the question
+- Footer year updates itself
+- Nav collapses into a menu button on phones
 
-**Navigation menu** — below 900px the menu button toggles an `.open` class on
-the navigation list, and updates `aria-expanded` so the button's state is
-announced correctly.
+## The JavaScript
 
-**FAQ accordion** — `document.querySelectorAll(".faq-question")` collects every
-question button. `forEach` loops over them and `addEventListener("click", ...)`
-waits for a click. `nextElementSibling` gets the answer sitting directly below
-the button, and `classList.toggle("show")` adds or removes the class that
-switches the answer between `display: none` and `display: block`. The same
-toggle puts `.open` on the button, which rotates the chevron in CSS.
+`assets/js/script.js` runs on all three pages. Each bit checks the elements
+exist first, otherwise you get errors on pages that don't have them.
 
-## Running the Site
+**Footer year.** Grabs the span with id "year" and puts the current year in it
+with `new Date().getFullYear()`. Saves me updating it manually.
 
-Open `index.html` in a browser, or use the VS Code Live Server extension. No
-build step or server-side code is required.
+**FAQ accordion.** `querySelectorAll` grabs all the question buttons, then
+`forEach` loops through and adds a click listener to each one.
+`nextElementSibling` gets the answer div sitting right under the button, and
+`classList.toggle("show")` adds or removes the class. The CSS has
+`.faq-answer { display: none }` and `.faq-answer.show { display: block }`, so
+JavaScript only handles the state and CSS does the showing and hiding.
+
+**Menu button.** Same toggle idea, adds an "open" class to the nav list.
+
+## Colours
+
+Greens based on the power logo. They're set as CSS variables at the top of
+style.css so I only have to change them in one place.
+
+- `#167a45` buttons, links, active nav
+- `#005f32` the site name
+- `#f7f9f8` page background
+- `#ffffff` cards
+- `#dde4e0` borders
+
+Fonts are Hanken Grotesk for headings and Source Sans 3 for body text, loaded
+from Google Fonts with fallbacks in case they don't load.
 
 ## Generative AI Reflection
 
-*(Replace the text below with your own account of what you actually did — the
-unit expects a personal reflection, and this section is marked.)*
+**TODO: rewrite this in your own words before submitting.**
 
-**Tool used.** I used Claude (and/or ChatGPT) while building this site, and
-Google Stitch to generate the visual design direction.
+**Tools.** I used Claude and Google Stitch.
 
-**What I used it for.** I used it to help plan the folder structure, to
-understand how CSS grid placement and custom properties work, and to translate
-a generated design mockup into hand-written CSS.
+**What I used it for.** Stitch to come up with the visual design, and Claude to
+help with the CSS and to explain things I didn't understand.
 
-**What I changed after generation.** The design mockups were produced with
-Tailwind loaded from a CDN and Material Symbols as an icon font. Because the
-exercise requires all styling to live in one external stylesheet with no
-libraries, I rebuilt the design as plain CSS: the mockup's design tokens became
-CSS custom properties, the utility classes became named component classes, and
-the icon font was replaced with inline SVG so the pages have no icon
-dependency. I also rewrote the placeholder copy, which made claims about data
-sources and independence that would not have been true of a student project.
+**What I changed.** The design Stitch gave me used Tailwind from a CDN and an
+icon font from Google. The exercise says all the styling has to be in an
+external CSS file and I can't use libraries, so I couldn't use that code. I
+rebuilt the design in normal CSS instead. The colours and sizes from the mockup
+became CSS variables, and I swapped the icon font for SVG icons written
+directly in the HTML. I also rewrote a lot of the placeholder text because it
+claimed things about data sources and sponsorship that aren't true for a
+student project.
 
-**What I learned.** I now understand how `addEventListener` connects a user
-action to a JavaScript function, and how `classList.toggle` lets CSS control
-what is visible while JavaScript only manages state. Rebuilding the mockup by
-hand also taught me how CSS grid placement works — I hit a bug where
-`grid-column: span 8` combined with a separate `grid-column-start` collapsed a
-block to one column, because the shorthand had already set the end line to
-`auto`.
+**What I learnt.** How `addEventListener` connects a click to a function, and
+that it's cleaner to let JavaScript just toggle a class and let CSS decide what
+that class looks like. I also learnt how CSS grid placement works after getting
+stuck on a bug where a section collapsed into one narrow column. Turned out
+`grid-column: span 8` sets the end line to auto, so adding a separate start
+line afterwards broke it. Had to set both lines in one rule.
 
-**Limitations.** Generated code still had to be read, tested and corrected. The
-mockups assumed a framework the exercise does not allow, so they were a
-starting point for the design rather than code I could use directly. Some
-generated copy sounded authoritative but was not factually supportable, which
-was a useful reminder to check claims rather than assume the output is
-accurate.
+**Problems.** Generated code still has to be checked and tested, it doesn't
+just work. A lot of what I got back was more complicated than the exercise
+needed so I cut it down to stuff I can actually explain. Some of the writing
+also sounded confident but wasn't accurate, which made me realise you can't
+just trust the output.
